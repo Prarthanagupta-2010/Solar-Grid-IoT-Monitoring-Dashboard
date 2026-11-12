@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810" role="img" aria-labelledby="title desc">
+  <title id="title">SolarGrid IoT Monitoring Dashboard preview</title>
+  <desc id="desc">Dark operations dashboard with solar energy cards, a production chart, asset health and active alerts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081120"/><stop offset="1" stop-color="#0d1a2e"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd36c"/><stop offset="1" stop-color="#ef973d"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#42d3ad" stop-opacity=".35"/><stop offset="1" stop-color="#42d3ad" stop-opacity="0"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="25" flood-color="#020814" flood-opacity=".55"/></filter>
+  </defs>
+  <rect width="1440" height="810" fill="url(#bg)"/>
+  <circle cx="1150" cy="-80" r="360" fill="#f6b94a" opacity=".035"/>
+  <circle cx="230" cy="780" r="400" fill="#42d3ad" opacity=".035"/>
+
+  <rect x="0" y="0" width="250" height="810" fill="#0c1728"/>
+  <path d="M250 0V810" stroke="#fff" opacity=".06"/>
+  <rect x="28" y="26" width="46" height="46" rx="13" fill="url(#gold)"/>
+  <path d="M54 32L41 52h10l-4 15 15-23H52z" fill="#111827"/>
+  <text x="88" y="44" fill="#f6b94a" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2.5">SOLARGRID</text>
+  <text x="88" y="62" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="600">Command Center</text>
+  <path d="M0 94H250" stroke="#fff" opacity=".05"/>
+  <text x="30" y="132" fill="#516079" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="2">PLATFORM</text>
+  <g font-family="Arial,sans-serif" font-size="12">
+    <rect x="18" y="151" width="214" height="42" rx="11" fill="#fff" opacity=".075"/>
+    <circle cx="39" cy="172" r="7" fill="none" stroke="#42d3ad" stroke-width="2"/><path d="M39 165v14M32 172h14" stroke="#42d3ad" opacity=".5"/>
+    <text x="61" y="176" fill="#fff">Overview</text>
+    <g fill="#8290a7">
+      <text x="61" y="226">Devices</text><text x="61" y="271">Live monitoring</text><text x="61" y="316">Alerts</text><text x="61" y="361">Energy analytics</text><text x="61" y="406">Maintenance</text><text x="61" y="451">Users</text><text x="61" y="496">Settings</text>
+    </g>
+    <g fill="none" stroke="#52617a" stroke-width="1.5">
+      <rect x="32" y="215" width="14" height="14" rx="3"/><path d="M32 258h14v14H32zM32 303l7-7 7 7v8H32zM32 349h14M34 344v10M39 339v15M44 347v7M32 394h14v13H32zM35 389h8M32 439h14v13H32zM35 434h8M39 479v14M32 486h14"/>
+    </g>
+  </g>
+  <rect x="18" y="708" width="214" height="60" rx="14" fill="#fff" opacity=".035"/>
+  <circle cx="48" cy="738" r="17" fill="#42d3ad" opacity=".12"/><text x="41" y="742" fill="#42d3ad" font-family="Arial" font-size="10" font-weight="700">SA</text>
+  <text x="76" y="734" fill="#d9e2ee" font-family="Arial" font-size="11" font-weight="600">System Administrator</text><text x="76" y="751" fill="#5c6b82" font-family="Arial" font-size="9">ADMIN</text>
+
+  <rect x="250" y="0" width="1190" height="64" fill="#091424" opacity=".92"/><path d="M250 64H1440" stroke="#fff" opacity=".05"/>
+  <circle cx="1260" cy="32" r="3" fill="#42d3ad"/><text x="1272" y="36" fill="#78ddb9" font-family="Arial" font-size="10">System live</text>
+  <text x="284" y="107" fill="#42d3ad" font-family="Arial" font-size="9" font-weight="700" letter-spacing="2.2">SOLARGRID COMMAND CENTER</text>
+  <text x="284" y="143" fill="#fff" font-family="Arial" font-size="28" font-weight="600">Operations overview</text>
+  <text x="284" y="166" fill="#718097" font-family="Arial" font-size="11">Live decision support for energy production, asset health and anomalies.</text>
+  <rect x="1241" y="124" width="158" height="38" rx="11" fill="#42d3ad"/><text x="1266" y="147" fill="#092019" font-family="Arial" font-size="10" font-weight="700">RUN TELEMETRY CYCLE</text>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(284 194)"><rect width="262" height="120" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/><text x="20" y="29" fill="#718097" font-family="Arial" font-size="10">Connected assets</text><text x="20" y="69" fill="#fff" font-family="Arial" font-size="27" font-weight="600">8</text><rect x="207" y="18" width="36" height="36" rx="10" fill="#38bdf8" opacity=".1"/><circle cx="225" cy="36" r="8" fill="none" stroke="#7dd3fc"/><text x="20" y="101" fill="#536078" font-family="Arial" font-size="9">●  7 devices reporting</text></g>
+    <g transform="translate(560 194)"><rect width="262" height="120" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/><text x="20" y="29" fill="#718097" font-family="Arial" font-size="10">Energy today</text><text x="20" y="69" fill="#fff" font-family="Arial" font-size="27" font-weight="600">148.6 kWh</text><rect x="207" y="18" width="36" height="36" rx="10" fill="#f6b94a" opacity=".1"/><circle cx="225" cy="36" r="7" fill="none" stroke="#f6b94a"/><path d="M225 24v5M225 43v5M213 36h5M232 36h5" stroke="#f6b94a"/><text x="20" y="101" fill="#536078" font-family="Arial" font-size="9">●  Across monitored assets</text></g>
+    <g transform="translate(836 194)"><rect width="262" height="120" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/><text x="20" y="29" fill="#718097" font-family="Arial" font-size="10">Active alerts</text><text x="20" y="69" fill="#fff" font-family="Arial" font-size="27" font-weight="600">5</text><rect x="207" y="18" width="36" height="36" rx="10" fill="#fb7185" opacity=".1"/><path d="M225 27l9 16h-18z" fill="none" stroke="#fb7185"/><text x="20" y="101" fill="#536078" font-family="Arial" font-size="9">●  2 critical findings</text></g>
+    <g transform="translate(1112 194)"><rect width="287" height="120" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/><text x="20" y="29" fill="#718097" font-family="Arial" font-size="10">System health</text><text x="20" y="69" fill="#fff" font-family="Arial" font-size="27" font-weight="600">89%</text><rect x="232" y="18" width="36" height="36" rx="10" fill="#42d3ad" opacity=".1"/><path d="M250 27l9 4v7c0 6-4 9-9 11-5-2-9-5-9-11v-7z" fill="none" stroke="#42d3ad"/><text x="20" y="101" fill="#536078" font-family="Arial" font-size="9">●  4 anomalies today</text></g>
+  </g>
+
+  <g transform="translate(284 330)" filter="url(#shadow)">
+    <rect width="770" height="278" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/>
+    <text x="20" y="30" fill="#e1e7ef" font-family="Arial" font-size="12" font-weight="600">Energy &amp; power profile</text><text x="20" y="48" fill="#536078" font-family="Arial" font-size="9">Hourly aggregation · last 24 hours</text>
+    <g stroke="#2b3850" stroke-dasharray="3 7" opacity=".85"><path d="M42 86H744M42 126H744M42 166H744M42 206H744M42 246H744"/></g>
+    <path d="M42 238C90 226 112 221 151 205S215 213 259 174 327 151 370 164 425 115 477 129 540 89 586 111 661 65 744 84V248H42z" fill="url(#area)"/>
+    <path d="M42 238C90 226 112 221 151 205S215 213 259 174 327 151 370 164 425 115 477 129 540 89 586 111 661 65 744 84" fill="none" stroke="#42d3ad" stroke-width="3"/>
+    <g fill="#516079" font-family="Arial" font-size="8"><text x="42" y="267">00:00</text><text x="210" y="267">06:00</text><text x="380" y="267">12:00</text><text x="548" y="267">18:00</text><text x="710" y="267">23:00</text></g>
+  </g>
+
+  <g transform="translate(1070 330)" filter="url(#shadow)">
+    <rect width="329" height="278" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/>
+    <text x="20" y="30" fill="#e1e7ef" font-family="Arial" font-size="12" font-weight="600">Asset status</text><text x="20" y="48" fill="#536078" font-family="Arial" font-size="9">Current fleet distribution</text>
+    <circle cx="164" cy="143" r="65" fill="none" stroke="#26334a" stroke-width="22"/>
+    <circle cx="164" cy="143" r="65" fill="none" stroke="#42d3ad" stroke-width="22" stroke-linecap="round" stroke-dasharray="275 410" transform="rotate(-90 164 143)"/>
+    <circle cx="164" cy="143" r="65" fill="none" stroke="#f6b94a" stroke-width="22" stroke-linecap="round" stroke-dasharray="75 410" stroke-dashoffset="-290" transform="rotate(-90 164 143)"/>
+    <text x="154" y="146" fill="#fff" font-family="Arial" font-size="25" font-weight="600">8</text><text x="148" y="162" fill="#5c6b82" font-family="Arial" font-size="8" letter-spacing="1">ASSETS</text>
+    <circle cx="46" cy="238" r="4" fill="#42d3ad"/><text x="57" y="242" fill="#8290a7" font-family="Arial" font-size="9">ONLINE</text><text x="127" y="242" fill="#fff" font-family="Arial" font-size="9">6</text>
+    <circle cx="185" cy="238" r="4" fill="#f6b94a"/><text x="196" y="242" fill="#8290a7" font-family="Arial" font-size="9">WARNING</text><text x="278" y="242" fill="#fff" font-family="Arial" font-size="9">2</text>
+  </g>
+
+  <g transform="translate(284 624)" filter="url(#shadow)">
+    <rect width="1115" height="150" rx="16" fill="#111d33" stroke="#fff" stroke-opacity=".07"/>
+    <text x="20" y="30" fill="#e1e7ef" font-family="Arial" font-size="12" font-weight="600">Asset health</text><text x="20" y="48" fill="#536078" font-family="Arial" font-size="9">Lowest scores require attention first</text>
+    <path d="M0 63H1115M0 106H1115" stroke="#fff" opacity=".05"/>
+    <g font-family="Arial"><text x="62" y="90" fill="#d5deea" font-size="10">Main Inverter 01</text><text x="62" y="133" fill="#d5deea" font-size="10">Battery Bank 01</text><text x="265" y="90" fill="#607089" font-size="9">Inverter Station</text><text x="265" y="133" fill="#607089" font-size="9">Storage Building</text><rect x="610" y="81" width="220" height="6" rx="3" fill="#26334a"/><rect x="610" y="81" width="161" height="6" rx="3" fill="#f6b94a"/><rect x="610" y="124" width="220" height="6" rx="3" fill="#26334a"/><rect x="610" y="124" width="191" height="6" rx="3" fill="#42d3ad"/><text x="852" y="89" fill="#fff" font-size="11" font-weight="600">73%</text><text x="852" y="132" fill="#fff" font-size="11" font-weight="600">87%</text><rect x="960" y="74" width="82" height="21" rx="10" fill="#f6b94a" opacity=".1"/><text x="976" y="88" fill="#f6b94a" font-size="8">WARNING</text><rect x="960" y="117" width="82" height="21" rx="10" fill="#42d3ad" opacity=".1"/><text x="980" y="131" fill="#42d3ad" font-size="8">ONLINE</text></g>
+  </g>
+</svg>
+

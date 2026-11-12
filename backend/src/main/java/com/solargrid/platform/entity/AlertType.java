@@ -1,0 +1,13 @@
+package com.solargrid.platform.entity;
+
+public enum AlertType {
+    HIGH_TEMPERATURE,
+    LOW_BATTERY,
+    VOLTAGE_ANOMALY,
+    DEVICE_OFFLINE,
+    PRODUCTION_DROP,
+    FREQUENCY_ANOMALY,
+    FALSE_DATA_INJECTION,
+    SUSPICIOUS_METER_READING
+}
+

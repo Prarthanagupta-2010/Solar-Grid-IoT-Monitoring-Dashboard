@@ -1,0 +1,49 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-solargrid}
+      POSTGRES_USER: ${POSTGRES_USER:-solargrid}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-solargrid_dev}
+    volumes:
+      - solargrid_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-solargrid} -d ${POSTGRES_DB:-solargrid}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-solargrid}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-solargrid}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-solargrid_dev}
+      APP_JWT_SECRET: ${JWT_SECRET:-c29sYXJncmlkLWRldi1qd3Qtc2VjcmV0LWtleS1jaGFuZ2UtbWUtMjAyNg==}
+      APP_ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@solargrid.local}
+      APP_ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin123!}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "3010:80"
+    restart: unless-stopped
+
+volumes:
+  solargrid_postgres_data:
+

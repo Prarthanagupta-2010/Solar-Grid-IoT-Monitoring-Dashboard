@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: solargrid-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/solargrid}
+    username: ${SPRING_DATASOURCE_USERNAME:solargrid}
+    password: ${SPRING_DATASOURCE_PASSWORD:solargrid_dev}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:c29sYXJncmlkLWRldi1qd3Qtc2VjcmV0LWtleS1jaGFuZ2UtbWUtMjAyNg==}
+    expiration-ms: ${APP_JWT_EXPIRATION_MS:28800000}
+  admin:
+    email: ${APP_ADMIN_EMAIL:admin@solargrid.local}
+    password: ${APP_ADMIN_PASSWORD:Admin123!}
+  simulation:
+    enabled: ${APP_SIMULATION_ENABLED:true}
+    interval-ms: ${APP_SIMULATION_INTERVAL_MS:5000}
+

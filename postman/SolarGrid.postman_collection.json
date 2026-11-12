@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "8b2c9371-2fca-4ab4-98d7-solargrid2026",
+    "name": "SolarGrid IoT Monitoring API",
+    "description": "Ready-to-run API requests for the SolarGrid portfolio project. Run Login first; its test stores the JWT in the collection variable.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "token", "value": "" },
+    { "key": "deviceId", "value": "1" },
+    { "key": "alertId", "value": "1" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login as Admin",
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["const body = pm.response.json();", "pm.collectionVariables.set('token', body.token);"] }
+          }],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@solargrid.local\",\n  \"password\": \"Admin123!\"\n}" },
+            "url": "{{baseUrl}}/api/auth/login"
+          }
+        },
+        {
+          "name": "Register Viewer",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Demo Viewer\",\n  \"email\": \"demo.viewer@example.com\",\n  \"password\": \"Viewer123!\"\n}" },
+            "url": "{{baseUrl}}/api/auth/register"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        { "name": "Summary", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/summary" } },
+        { "name": "Energy Production", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/energy-production?hours=24" } },
+        { "name": "Anomaly Statistics", "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/anomaly-statistics" } }
+      ]
+    },
+    {
+      "name": "Devices",
+      "item": [
+        { "name": "List Devices", "request": { "method": "GET", "url": "{{baseUrl}}/api/devices" } },
+        { "name": "Device Detail", "request": { "method": "GET", "url": "{{baseUrl}}/api/devices/{{deviceId}}" } },
+        { "name": "Device Readings", "request": { "method": "GET", "url": "{{baseUrl}}/api/devices/{{deviceId}}/readings?limit=50" } },
+        {
+          "name": "Create Device",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Solar Array C1\",\n  \"serialNumber\": \"SP-C1-DEMO\",\n  \"type\": \"SOLAR_PANEL\",\n  \"location\": \"East Field · Row C\",\n  \"status\": \"ONLINE\",\n  \"healthScore\": 100,\n  \"installationDate\": \"2026-08-01\"\n}" },
+            "url": "{{baseUrl}}/api/devices"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Telemetry and Alerts",
+      "item": [
+        { "name": "Latest Readings", "request": { "method": "GET", "url": "{{baseUrl}}/api/sensor-readings/latest" } },
+        { "name": "Run Simulation Cycle", "request": { "method": "POST", "url": "{{baseUrl}}/api/sensor-readings/simulate" } },
+        { "name": "Active Alerts", "request": { "method": "GET", "url": "{{baseUrl}}/api/alerts/active" } },
+        {
+          "name": "Resolve Alert",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"status\": \"RESOLVED\",\n  \"resolutionNote\": \"Telemetry checked and asset returned to normal operation.\"\n}" },
+            "url": "{{baseUrl}}/api/alerts/{{alertId}}/status"
+          }
+        },
+        { "name": "Security Events", "request": { "method": "GET", "url": "{{baseUrl}}/api/security-events" } }
+      ]
+    },
+    {
+      "name": "Maintenance",
+      "item": [
+        { "name": "List Maintenance Logs", "request": { "method": "GET", "url": "{{baseUrl}}/api/maintenance-logs" } },
+        {
+          "name": "Create Maintenance Log",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"deviceId\": {{deviceId}},\n  \"type\": \"INSPECTION\",\n  \"note\": \"Routine inspection completed; connectors and temperature are normal.\"\n}" },
+            "url": "{{baseUrl}}/api/maintenance-logs"
+          }
+        }
+      ]
+    }
+  ]
+}
+
